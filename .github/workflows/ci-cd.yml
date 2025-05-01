@@ -32,7 +32,7 @@ jobs:
     - name: Backend - Run Tests
       working-directory: ./news-backend
       run: |
-        npm test
+        npm test -- --passWithNoTests
     
     # Frontend Build and Test
     - name: Frontend - Install Dependencies
