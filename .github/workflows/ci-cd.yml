@@ -32,7 +32,7 @@ jobs:
     - name: Backend - Run Tests
       working-directory: ./news-backend
       run: |
-        npm run test
+        npm test
     
     # Frontend Build and Test
     - name: Frontend - Install Dependencies
@@ -48,7 +48,7 @@ jobs:
     - name: Frontend - Run Tests
       working-directory: ./news-frontend
       run: |
-        CI=true npm test -- --passWithNoTests || echo "Frontend tests skipped"
+        npm test
     
     - name: Frontend - Build
       working-directory: ./news-frontend
