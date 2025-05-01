@@ -24,11 +24,22 @@ jobs:
       run: |
         npm ci
     
+    # Backend Build and Test
+    - name: Backend - Run Tests
+      working-directory: ./news-backend
+      run: |
+        npm test
+    
     # Frontend Build and Test
     - name: Frontend - Install Dependencies
       working-directory: ./news-frontend
       run: |
         npm ci
+    
+    - name: Frontend - Run Tests
+      working-directory: ./news-frontend
+      run: |
+        npm test
     
     - name: Frontend - Build
       working-directory: ./news-frontend
