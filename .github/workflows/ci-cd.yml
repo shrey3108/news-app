@@ -24,10 +24,15 @@ jobs:
       run: |
         npm ci
     
+    - name: Backend - Lint
+      working-directory: ./news-backend
+      run: |
+        npm run lint || true
+    
     - name: Backend - Run Tests
       working-directory: ./news-backend
       run: |
-        npm test || echo "Backend tests skipped"
+        npm test
     
     # Frontend Build and Test
     - name: Frontend - Install Dependencies
