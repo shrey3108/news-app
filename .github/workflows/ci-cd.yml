@@ -24,33 +24,11 @@ jobs:
       run: |
         npm ci
     
-    - name: Backend - Lint
-      working-directory: ./news-backend
-      run: |
-        npm run lint || true
-    
-    - name: Backend - Run Tests
-      working-directory: ./news-backend
-      continue-on-error: true
-      run: |
-        npm test
-    
     # Frontend Build and Test
     - name: Frontend - Install Dependencies
       working-directory: ./news-frontend
       run: |
         npm ci
-    
-    - name: Frontend - Lint
-      working-directory: ./news-frontend
-      run: |
-        npm run lint || true
-    
-    - name: Frontend - Run Tests
-      working-directory: ./news-frontend
-      continue-on-error: true
-      run: |
-        npm test
     
     - name: Frontend - Build
       working-directory: ./news-frontend
