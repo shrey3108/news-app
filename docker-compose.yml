@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: news-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=news_app
+
+  backend:
+    build: 
+      context: ./news-backend
+      dockerfile: Dockerfile
+    container_name: news-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/news_app
+    depends_on:
+      - mongodb
+    volumes:
+      - ./news-backend:/app
+      - /app/node_modules
+
+  frontend:
+    build: 
+      context: ./news-frontend
+      dockerfile: Dockerfile
+    container_name: news-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:5000
+
+volumes:
+  mongodb_data:
+
+networks:
+  default:
+    driver: bridge
