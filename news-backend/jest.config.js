@@ -6,8 +6,7 @@ module.exports = {
   coveragePathIgnorePatterns: ['/node_modules/'],
   collectCoverageFrom: ['**/*.js', '!**/node_modules/**'],
   transform: {},
-  extensionsToTreatAsEsm: ['.js'],
   moduleNameMapper: {
-    '^(\\.{1,2}/.*)\\.js$': '$1'
+    '^(\.{1,2}/.*)\.js$': '$1'
   }
 };
