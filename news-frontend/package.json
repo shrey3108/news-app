@@ -16,6 +16,7 @@
     "start:port": "set PORT=3001 && react-scripts start",
     "build": "react-scripts build",
     "test": "echo 'Frontend tests passed' && exit 0",
+    "test:run": "react-scripts test --passWithNoTests",
     "test:coverage": "react-scripts test --coverage",
     "lint": "eslint src --ext .js,.jsx",
     "lint:fix": "eslint src --ext .js,.jsx --fix",
